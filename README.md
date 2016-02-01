@@ -4,11 +4,14 @@
 
 2016新的开始，新的征程，让我们开始记录吧！
 
+###TODO List
+---
+0002-Android Support Annotations  
+0003-Android Lint  
+
 ###目录
 ---
 [0001-License简介](./notes/0001-License简介.md)  
-0002-Android Support Annotations  
-0003-Android Lint  
 
 ###License
 ---
