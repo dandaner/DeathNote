@@ -30,3 +30,6 @@ proguard/
 
 # Android Studio captures folder
 captures/
+
+# Mac File
+.DS_Store
