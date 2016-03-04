@@ -21,11 +21,11 @@ repositories {
 }
 ```
 ##执行Annotation
-1、最简单的方法就是使用最新版本的Android Studio,IDE会自动进行annotation的检测并实时提示错误信息，**Studio版本最少需要在1.5.1及以上，否则无法实时提示，只能通过执行lint,在lint生成的报告中才能看见问题**。
-2、当你使用gradle版本高于1.3的时候，手动执行lint,在生成的lint报告中，你能看见Annotation的相关警告或者错误。
+1、最简单的方法就是使用最新版本的Android Studio,IDE会自动进行annotation的检测并实时提示错误信息，**Studio版本最少需要在1.5.1及以上，否则无法实时提示，只能通过执行lint,在lint生成的报告中才能看见问题**。   
+2、当你使用gradle版本高于1.3的时候，手动执行lint,在生成的lint报告中，你能看见Annotation的相关警告或者错误。   
 
 ##常见的注解类型：
----
+
 ###Nullness Annotations
 空类型的注解，一般用来修饰参数，函数返回值，不能用来修饰基本数据类型
 - @Nullable 可以为空
@@ -102,11 +102,11 @@ public abstract class ActionBar {
     public abstract void setNavigationMode(@NavigationMode int mode);
 ```
 当我们在API接口中，要求SDK使用者传递的参数只能是我们定义的参数时，我们可以采用这种方式来约束开发人员，来保证接口质量。
-> 注意：上述代码中注解NavigationMode上使用了@Retention(RetentionPolicy.SOURCE)注解，他代表的含义是使用该注解的注解的保留策略，有3种保留策略。可以参见RetentionPolicy类，简单来说
-> 1、SOURCE 注解只在源码中保留，不会生成class文件
-> 2、CLASS注解会生成class文件，但是不会在运行时，这是默认策略
-> 3、RUNTIME会生成class文件，在运行时也是可用的。
-> 大部分情况下，我们使用SOURCE模式即可，简单实用，不会生成多余代码，其他两种方式我没有深入研究。
+> 注意：上述代码中注解NavigationMode上使用了@Retention(RetentionPolicy.SOURCE)注解，他代表的含义是使用该注解的注解的保留策略，有3种保留策略。可以参见RetentionPolicy类，简单来说   
+> 1、SOURCE 注解只在源码中保留，不会生成class文件   
+> 2、CLASS注解会生成class文件，但是不会在运行时，这是默认策略    
+> 3、RUNTIME会生成class文件，在运行时也是可用的。    
+> 大部分情况下，我们使用SOURCE模式即可，简单实用，不会生成多余代码，其他两种方式我没有深入研究。    
 
 另外，上面这种方式限定了参数只能使用定义的三种模式，如果想参数混合使用，也就是我们常见的使用 | ， & 连接常量使用的话，可以通过下面这种方式,就是多了一个flag,非常简单。
 ```java
@@ -156,6 +156,8 @@ new Thread(new Runnable() {
 > 在一个进程中有且仅有一个主线程@MainThread。同时它也是一个UI线程@UiThread。举个例子，我们的Activity就运行在这个线程之中。然而，对于一个进程来说，它有能力去创建另外一个线程来运行不同的窗口，但是这种情况是及其少见的，一般都是系统进程拥有这种能力。一般情况下，和生命周期相关的方法，我们使用@MainThread，和View相关的，我们使用@UiThread。因为一个@MainThread就是一个@UiThread，大多数情况下，@UiThread又是一个@MainThread,所以他们是可以互换的。
 > 
 > 对于上面这段话理解，一句话总结，大部分情况下，两者是可以互换的。使用原则就是和View相关的我们使用@UiThread。其他我们基本都可以使用@MainThread
+
+
 ###RGB Color Integers
 - @ColorInt
 RGB类型的注解，专门用来修饰RGB类型的色值整型。在上面的资源类型的注解中，我们提到过，如果你想在API接口参数中，约束用户必须传入一个color类型的资源ID，那么你可以使用@ColorRes注解。但是，在另外一种情况下，你的API接口不想使用color类型的的资源ID，而是一个实实在在的RGB或者ARGB类型的整型值，这个时候，你就可以使用@ColorInt:
