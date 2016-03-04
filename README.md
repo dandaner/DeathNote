@@ -6,12 +6,13 @@
 
 ###TODO List
 ---
-0002-Android Support Annotations  
 0003-Android Lint  
+0004-Android Gradle 使用汇总  
 
 ###目录
 ---
-[0001-License简介](./notes/0001-License简介.md)  
+- [0001-License简介](./notes/0001-License简介.md)  
+- [0002-Android Support Annotations](./notes/0002-Android Support Annotations.md)  
 
 ###License
 ---
